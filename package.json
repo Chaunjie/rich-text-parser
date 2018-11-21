@@ -1,0 +1,24 @@
+{
+  "name": "rich-text-parser",
+  "version": "1.0.0",
+  "description": "html to json parser work for weapp rich-text",
+  "main": "parser.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Chaunjie/rich-text-parser.git"
+  },
+  "keywords": [
+    "rich-text",
+    "html",
+    "json"
+  ],
+  "author": "chaunjie",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Chaunjie/rich-text-parser/issues"
+  },
+  "homepage": "https://github.com/Chaunjie/rich-text-parser#readme"
+}
