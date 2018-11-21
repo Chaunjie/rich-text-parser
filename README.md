@@ -12,6 +12,7 @@ $ npm i rich-text-parser -S --production
 ```bash
   import parser from 'rich-text-parser'
   const nodes = parser.getRichTextJson(html)
+  <rich-text nodes="{{nodes}}"></rich-text>
 ```
 
 ### 参数
