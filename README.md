@@ -9,15 +9,20 @@ $ npm i rich-text-parser -S --production
 
 **使用**
 
-```bash
-  import parser from 'rich-text-parser'
-  const nodes = parser.getRichTextJson(html)
+```html
   <rich-text nodes="{{nodes}}"></rich-text>
 ```
 
-### 参数
+```bash
+  import parser from 'rich-text-parser'
 
-| 参数 | 说明 | 类型 |
-|-----------|-----------|-----------|
-| html | 需要被解析的html | `String` |
+  parser.definedCustomTag({figure: 'p', figcaption: ''})
+  const nodes = parser.getRichTextJson(html)
+```
+### Api
+
+| 参数 | 说明 | 参数 | 参数类型 | 返回值类型 |
+|-----------|----------------------------------|-----------|---------|--------|
+| getRichTextJson | 解析html | `html` | `String` | `Object` |
+| definedCustomTag | 定义需要解析的特殊标签，value不填默认是div | `options` | `Object` | `-` |
 

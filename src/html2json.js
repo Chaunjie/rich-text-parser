@@ -4,6 +4,7 @@ import htmlParser from './htmlparser'
 export default class HtmlToJson {
   constructor () {
     this.__placeImgeUrlHttps = 'https'
+    this.customTag = {}
   }
 
   removeDoctype (html) {
@@ -14,10 +15,15 @@ export default class HtmlToJson {
     return html.replace(/\r?\n+/g, '').replace(/<!--.*?-->/ig, '').replace(/\/\*.*?\*\//ig, '').replace(/[ ]+</ig, '<')
   }
 
+  definedCustomTag (options) {
+    this.customTag = options
+  }
+
   getHtmlJson (html) {
     html = this.removeDoctype(html)
     html = this.trimHtml(html)
     html = discode.strDiscode(html)
+    const {customTag} = this
 
     let bufArray = []
     let results = {
@@ -81,6 +87,10 @@ export default class HtmlToJson {
         if (node.name === 'video' && results.source) {
           node.attrs.src = results.source
           delete results.source
+        }
+
+        if (customTag.hasOwnProperty(node.name)) {
+          node.name = customTag[node.name]
         }
 
         if (bufArray.length === 0) {
